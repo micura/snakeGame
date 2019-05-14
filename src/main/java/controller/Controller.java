@@ -18,7 +18,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.util.Duration;
 import model.Game;
-import model.Snake;
 import model.Cell;
 import model.Player;
 import model.Toplist;
@@ -28,6 +27,7 @@ import org.slf4j.LoggerFactory;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Controller {
 
@@ -114,7 +114,6 @@ public class Controller {
         String playerName = inputPlayerField.getText();
         String date = new SimpleDateFormat("YYYY-MM-dd HH-mm-ss").format(Calendar.getInstance().getTime());
         toplist.newRecord(playerName, game.getScore(), date);
-
         endGamePane.setVisible(false);
         gamePane.setVisible(false);
         menuPane.setVisible(true);
@@ -129,18 +128,22 @@ public class Controller {
     }
 
     @FXML
-    private void keyHandler(KeyEvent keyCode) {
+    private void keyHandler(KeyEvent keyCode) throws InterruptedException {
         if (keyCode.getCode().equals(KeyCode.D)) {
             Game.snake.setDirection("RIGHT");
+            TimeUnit.MILLISECONDS.sleep(100);
         }
         else if(keyCode.getCode().equals(KeyCode.A)) {
             Game.snake.setDirection("LEFT");
+            TimeUnit.MILLISECONDS.sleep(100);
         }
         else if(keyCode.getCode().equals(KeyCode.W)) {
             Game.snake.setDirection("UP");
+            TimeUnit.MILLISECONDS.sleep(100);
         }
         else if(keyCode.getCode().equals(KeyCode.S)) {
             Game.snake.setDirection("DOWN");
+            TimeUnit.MILLISECONDS.sleep(100);
         };
     }
 
@@ -157,10 +160,9 @@ public class Controller {
                     gc.setFill(Color.BLACK);
                     gc.strokeRect(0, 0, 1020, 760);
 
-                    for (int j = 0; j < Snake.getSnake().size(); j++) {
+                    for (int j = 0; j < Game.snake.getSnake().size(); j++) {
                         gc.setFill(Color.BLUE);
-                        gc.fillRect(Snake.getSnake().get(j).getX(), Snake.getSnake().get(j).getY(), Cell.getWidth(), Cell.getHeight());
-                        //gc.drawImage(food, Snake.getSnake().get(j).getX(), Snake.getSnake().get(j).getY());
+                        gc.fillRect(Game.snake.getSnake().get(j).getX(), Game.snake.getSnake().get(j).getY(), Cell.getWidth(), Cell.getHeight());
                     }
                     gc.setFill(Color.BLUE);
                     gc.drawImage(food, Game.food.getX(), Game.food.getY() );
@@ -170,12 +172,13 @@ public class Controller {
                     log.info("A pontod: " + game.getScore());
                     endGamePane.setVisible(true);
 
-                    for (int j = 0; j < Snake.getSnake().size(); j++) {
+                    int size = Game.snake.getSnake().size();
+                    for (int j = 0; j < size; j++) {
                         gc.setFill(Color.RED);
-                        gc.fillRect(Snake.getSnake().get(j).getX(), Snake.getSnake().get(j).getY(), Cell.getWidth(), Cell.getHeight());
+                        gc.fillRect(Game.snake.getSnake().get(j).getX(), Game.snake.getSnake().get(j).getY(), Cell.getWidth(), Cell.getHeight());
                     }
                     timeline.stop();
-                    Snake.getSnake().clear();
+                    Game.snake.getSnake().clear();
                 }
             }
             ));

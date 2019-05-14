@@ -55,8 +55,8 @@ public class Food {
      * @return {@code true}: a kaja érvényes pozíción van, {@code false}: a kaja érvénytelen pozícióra került.
      */
     public boolean isValidArea(int x, int y){
-        for (int j = 0; j <= Snake.getSnake().size() - 1; j++) {
-            if ((Snake.getSnake().get(j).getX() == x) && (Snake.getSnake().get(j).getY() == y)){
+        for (int j = 0; j <= Game.snake.getSnake().size() - 1; j++) {
+            if ((Game.snake.getSnake().get(j).getX() == x) && (Game.snake.getSnake().get(j).getY() == y)){
                 return false;
             }
         }

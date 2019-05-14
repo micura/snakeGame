@@ -38,7 +38,7 @@ public class Snake {
      * @return A kígyót alkotó kígyósejtek listáját.
      * @see Cell
      */
-    public static ArrayList<Cell> getSnake() {
+    public ArrayList<Cell> getSnake() {
         return snake;
     }
 
@@ -50,13 +50,14 @@ public class Snake {
      */
     private boolean isInvalidArea() {
         for (int i = 1; i <= snake.size() - 1; i++) {
-            if (snake.get(0).getX() == snake.get(i).getX() && snake.get(0).getY() == snake.get(i).getY()) {
+            if ((snake.get(0).getX() == snake.get(i).getX()) && (snake.get(0).getY() == snake.get(i).getY())) {
                 return true;
             }
         }
 
-        if (snake.get(0).getX() < 0 || snake.get(0).getX() > Game.getWIDTH() - 20 ||
-                snake.get(0).getY() < 0 || snake.get(0).getY() > Game.getHEIGHT() - 20) {
+        if (snake.get(0).getX() == 0 || snake.get(0).getX() == Game.getWIDTH() - 20  ||
+                snake.get(0).getY() == 0 || snake.get(0).getY() == Game.getHEIGHT() - 20 ) {
+            System.out.println(Game.getWIDTH());
             return true;
         }
         return false;
@@ -85,31 +86,34 @@ public class Snake {
     /**
      * A kigyó mozgatásáért felel.
      *
-     *
      * @param food A pályán lévő kaja objektum.
      * @return  {@code true}: A kigyó frissítése folytatódhat.
      *          {@code false}: A kígyó frissítésének befejezése, ami a játék befejezéséhez vezet.
      */
     public boolean update(Food food) {
-        for (int i = snake.size() - 1; i >= 0; --i) {
-            if (i == 0) {
-                switch (direction) {
-                    case "LEFT":
-                        snake.get(0).setX(snake.get(0).getX() - 20);
-                        break;
-                    case "RIGHT":
-                        snake.get(0).setX(snake.get(0).getX() + 20);
-                        break;
-                    case "UP":
-                        snake.get(0).setY(snake.get(0).getY() - 20);
-                        break;
-                    case "DOWN":
-                        snake.get(0).setY(snake.get(0).getY() + 20);
-                        break;
+        if(isInvalidArea()) {
+            return false;
+        } else {
+            for (int i = snake.size() - 1; i >= 0; --i) {
+                if (i == 0) {
+                    switch (direction) {
+                        case "LEFT":
+                            snake.get(0).setX(snake.get(0).getX() - 20);
+                            break;
+                        case "RIGHT":
+                            snake.get(0).setX(snake.get(0).getX() + 20);
+                            break;
+                        case "UP":
+                            snake.get(0).setY(snake.get(0).getY() - 20);
+                            break;
+                        case "DOWN":
+                            snake.get(0).setY(snake.get(0).getY() + 20);
+                            break;
+                    }
+                } else {
+                    snake.get(i).setX(snake.get(i - 1).getX());
+                    snake.get(i).setY(snake.get(i - 1).getY());
                 }
-            } else {
-                snake.get(i).setX(snake.get(i - 1).getX());
-                snake.get(i).setY(snake.get(i - 1).getY());
             }
         }
         if (snake.get(0).getX() == food.getX() && snake.get(0).getY() == food.getY()) {
@@ -117,9 +121,7 @@ public class Snake {
             Cell newCell = getNextCell();
             snake.add(newCell);
         }
-        if(isInvalidArea()) {
-            return false;
-        }
+
         return true;
     }
 
