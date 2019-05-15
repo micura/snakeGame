@@ -10,7 +10,7 @@
 
 ## Kezelési útmutató
 
-* **Billentyűk: **
+* **Billentyűk:**
   * W: Előre
   * A: Kontrollpontok mozgatása
   * S: Kontrollpontok mozgatása
