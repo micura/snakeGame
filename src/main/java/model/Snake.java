@@ -3,6 +3,16 @@ package model;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * @author  Adam Micura
+ * @version 1.0
+ * @since   2019.03-31
+ */
+
+/**
+ * Az {@link model.Snake} osztály reprezentálja a kígyót.
+ * Egy {@link model.Snake} példány egy új kígyót hoz létre.
+ */
 public class Snake {
     /**
      * A kígyó iránya.

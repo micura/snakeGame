@@ -15,6 +15,9 @@ import java.util.List;
  * Az {@link model.Toplist} osztály reprezentálja a toplistát.
  */
 public class Toplist {
+    /**
+     *  A toplistához használt EntityManager egy példánya.
+     */
     private static EntityManager em;
 
     /**

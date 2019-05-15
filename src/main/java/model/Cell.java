@@ -21,7 +21,7 @@ public class Cell {
     private int y;
 
     /**
-     *  Megadja a kígyó sejt szélességét
+     *  Megadja a kígyó sejt szélességét.
      */
     private static final int WIDTH = 20;
 

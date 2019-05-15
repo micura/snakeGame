@@ -12,7 +12,14 @@ package model;
  */
 
 public class Game {
+    /**
+     *  A játékhoz használt kaja egy példánya.
+     */
     public static Food food;
+
+    /**
+     *  A játékhoz használt kígyó egy példánya.
+     */
     public static Snake snake;
 
     /**

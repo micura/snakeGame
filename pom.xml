@@ -224,6 +224,7 @@
                 <version>3.0.0</version>
                 <configuration>
                     <configLocation>${basedir}/src/main/resources/styles/checkstyle.xml</configLocation>
+                    <excludes>**/controller/*</excludes>
                 </configuration>
             </plugin>
 

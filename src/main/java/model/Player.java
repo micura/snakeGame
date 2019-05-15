@@ -38,13 +38,13 @@ public class Player  {
     private String date;
 
     /**
-     * Az osztály alapértelmezett konstruktora
+     * Az osztály alapértelmezett konstruktora.
      */
     public Player() {
     }
 
     /**
-     * Az osztály konstruktora
+     * Az osztály konstruktora.
      *
      * @param playerName a játékos neve.
      * @param score a játékos pontszáma.
