@@ -11,10 +11,10 @@
 ## Kezelési útmutató
 
 * **Billentyűk:**
-  * W: Előre
-  * A: Kontrollpontok mozgatása
-  * S: Kontrollpontok mozgatása
-  * D: Kontrollpontok mozgatása
+  * W: fEL
+  * A: Le
+  * S: Balra
+  * D: Jobbra
 
 ---
 
