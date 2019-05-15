@@ -1,12 +1,10 @@
 package model;
 
 /**
- * @author  Adam Micura
+ * @author  Adam Micura.
  * @version 1.0
  * @since   2019.03-31
- */
-
-/**
+ *
  * Az {@link model.Cell} osztály reprezentálja a kígyó sejtjeit(részeit).
  * Egy {@link model.Cell} példány a kígyó egy sejtje.
  */

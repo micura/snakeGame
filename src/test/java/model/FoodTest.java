@@ -13,12 +13,14 @@ class FoodTest {
 
     private Cell snakeHead;
 
-
+    private Snake snake;
     @BeforeEach
     void setUp() {
         Game.setWIDTH(400.0);
         Game.setHEIGHT(400.0);
         eatablefood = new Food();
+        snake = new Snake();
+
         eatablefood.setX(100);
         eatablefood.setY(100);
         newFood = new Food();

@@ -32,7 +32,7 @@ public class Game {
 
     /**
      * Az oztály konstruktora. Inicializál egy játékot.
-     * Megadja a kezdeti pontszámot. Létrehozza a kigyót és egy kaját.
+     * Megadja a kezdeti pontszámot. Létrehozza a kígyót és egy kaját.
      *
      * @param width A játéktér szélessége.
      * @param height A játéktér magassága.
@@ -84,10 +84,18 @@ public class Game {
         return HEIGHT;
     }
 
+    /**
+     * Beállítja a játéktér szélességét.
+     * @param WIDTH a játéktér szélessége.
+     */
     public static void setWIDTH(double WIDTH) {
         Game.WIDTH = WIDTH;
     }
 
+    /**
+     * Beállítja a játéktér magasságát.
+     * @param HEIGHT a játéktér magassága.
+     */
     public static void setHEIGHT(double HEIGHT) {
         Game.HEIGHT = HEIGHT;
     }

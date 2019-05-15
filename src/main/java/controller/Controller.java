@@ -11,12 +11,16 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.Shadow;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.util.Duration;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import java.time.Duration;
 import model.Game;
 import model.Cell;
 import model.Player;
@@ -52,10 +56,18 @@ public class Controller {
     @FXML
     private TableView tab;
 
+    @FXML
+    private ImageView gameBackground;
+
+    @FXML
+    private ImageView menuBackground;
+
     private Game game;
     private Toplist toplist = new Toplist();
     private Image food = new Image(String.valueOf(getClass().getResource("/images/food.gif")));
     public Logger log = LoggerFactory.getLogger(String.valueOf(getClass().getResource("/log4j2.xml")));
+    private Text text;
+    private Shadow effect;
 
     @FXML
     public void initialize() {
@@ -74,11 +86,14 @@ public class Controller {
         tab.getColumns().addAll(playerNameColumn, scoreColumn, dateColumn);
 
         tab.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+
+        gameBackground.setImage(new Image(String.valueOf(getClass().getResource("/images/gameBackground.jpg"))));
+        menuBackground.setImage(new Image(String.valueOf(getClass().getResource("/images/menuBackground.jpg"))));
     }
 
     @FXML
     private void startButton(ActionEvent event) {
-        log.info("Megnyomtad a Start gombot.");
+        log.debug("Megnyomtad a Start gombot.");
         game = new Game(canvas.getWidth(), canvas.getHeight());
         menuPane.setVisible(false);
         gamePane.setVisible(true);
@@ -88,7 +103,7 @@ public class Controller {
 
     @FXML
     private void toplistButton(ActionEvent event) {
-        log.info("Megnyomtad a toplista gombot");
+        log.debug("Megnyomtad a toplista gombot");
         tab.getItems().clear();
         List<Player> players = Toplist.getAll();
 
@@ -120,7 +135,7 @@ public class Controller {
     }
     @FXML
     private void backMenuButton(ActionEvent event) {
-        log.info("Lenyomva - Vissza a menübe");
+        log.debug("Lenyomva - Vissza a menübe");
         endGamePane.setVisible(false);
         gamePane.setVisible(false);
         toplistPane.setVisible(false);
@@ -148,23 +163,24 @@ public class Controller {
     }
 
     private void draw(){
-        Timeline timeline  = new Timeline(60);
+        Timeline timeline  = new Timeline(20);
         try {
-            int delay = 100;
-            timeline.getKeyFrames().add(new KeyFrame(Duration.millis(delay), (ActionEvent event) -> {
+            timeline.getKeyFrames().add(new KeyFrame(new javafx.util.Duration(150), (ActionEvent event) -> {
                 GraphicsContext gc = canvas.getGraphicsContext2D();
                 if (!game.isGameOver()) {
-                    gc.setFill(Color.GRAY);
+
+                    gc.setFill(Color.rgb(157,185,5));
                     gc.fillRect(0, 0, 1020, 760);
                     gc.setLineWidth(3.0);
                     gc.setFill(Color.BLACK);
                     gc.strokeRect(0, 0, 1020, 760);
+                    gc.setFont(new Font("System", 20));
+                    gc.fillText(""+game.getScore(), 20, 20 );
 
                     for (int j = 0; j < Game.snake.getSnake().size(); j++) {
-                        gc.setFill(Color.BLUE);
+                        gc.setFill(Color.rgb(10,92,14));
                         gc.fillRect(Game.snake.getSnake().get(j).getX(), Game.snake.getSnake().get(j).getY(), Cell.getWidth(), Cell.getHeight());
                     }
-                    gc.setFill(Color.BLUE);
                     gc.drawImage(food, Game.food.getX(), Game.food.getY() );
                 } else {
                     log.info("Vége a játéknak");

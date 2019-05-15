@@ -33,7 +33,5 @@ class GameTest {
 
         assertTrue(goodCell.getY() > 0.0,
                 "A kígyó y pozíciójának(" + goodCell.getY() + ") nagyobbnak kell lennie, mint" + 0.0);
-
-        //Magába ütközés teszt
     }
 }

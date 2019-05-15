@@ -1,22 +1,75 @@
-#startButton, #toplistButton, #exitButton {
-    -fx-background-color:
-            #090a0c,
-            linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),
-            linear-gradient(#20262b, #191d22),
-            radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));
-    -fx-background-radius: 5,4,3,5;
-    -fx-background-insets: 0,1,2,0;
-    -fx-text-fill: white;
-    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
-    -fx-font-family: "Arial";
-    -fx-text-fill: linear-gradient(white, #d0d0d0);
-    -fx-font-size: 12px;
-    -fx-padding: 10 20 10 20;
-}
-#startGomb Text {
-    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.9) , 1, 0.0 , 0 , 1 );
-}
-
 #tab .table-column {
     -fx-alignment: CENTER;
+}
+
+.button {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #2aa32e 0%, #5d904e 100%),
+            #1c9d1c,
+            #26d823,
+            radial-gradient(center 50% 50%, radius 100%, #29d82e, #29c532);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+.button {
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #2aa322 0%, #20900a 100%),
+            #599d3b,
+            #1cd81b,
+            radial-gradient(center 50% 50%, radius 100%, #4dd225, #0a6f0c);
+}
+.button {
+    -fx-padding: 10 15 13 15;
+    -fx-background-insets: 2 0 0 0,2 0 3 0, 2 0 4 0, 2 0 5 0;
+}
+.button Text {
+    -fx-fill: white;
+    -fx-effect: dropshadow( gaussian , #a30000 , 0,0,0,2 );
+}
+
+.button:hover {
+    -fx-padding: 8 15 15 15;
+    -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;
+    -fx-background-radius: 8;
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%, #3b65a3 0%, #5d904e 100%),
+            #271c9d,
+            #5290d8,
+            radial-gradient(center 50% 50%, radius 100%, #4146d8, #6050c5);
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.75) , 4,0,0,1 );
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+.table-view{
+    -fx-border-insets: 0 0 0 5;
+    -fx-padding: 0 -3 0 0;
+    -fx-font-size: 1.1em;
+}
+.table-view .column-header {
+    -fx-background-color :derive(#43ee37,50.0%);
+    -fx-border-color: #3c9f38;
+    -fx-border-width: 0 1 0 0;
+    -fx-padding: 0 0 0 0;
+    -fx-font-size: 1.1em;
+}
+.table-view .table-cell {
+    -fx-background-color: #3eab33;
+    -fx-border-color: #196618;
+    -fx-border-width: 1 1 1 1;
+    -fx-padding: -1 -1 -1 -1;
+    -fx-alignment: center;
+    -fx-font-size: 1.1em;
+}
+.table-view .table-row-cell:selected .table-cell{
+    -fx-text-fill: black;
+    -fx-background-color: #406fb2;
+    -fx-border-width: 1 1 1 1;
+    -fx-padding: -1 -1 -1 -1;
+    -fx-table-cell-border-color: #387c21;
+    -fx-alignment: center;
+    -fx-font-size: 1.1em;
 }

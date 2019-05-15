@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
@@ -11,17 +14,19 @@
    <children>
       <Pane fx:id="menuPane" prefHeight="760.0" prefWidth="1020.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox fx:id="menu" alignment="CENTER" layoutX="417.0" layoutY="289.0" prefHeight="182.0" prefWidth="186.0" spacing="20.0">
+            <ImageView fx:id="menuBackground" fitHeight="780.0" fitWidth="1060.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox fx:id="menu" alignment="CENTER" layoutX="417.0" layoutY="356.0" prefHeight="182.0" prefWidth="186.0" spacing="20.0">
                <children>
-                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButton" text="New Game" textAlignment="CENTER" />
-                  <Button fx:id="toplistButton" mnemonicParsing="false" onAction="#toplistButton" text="Toplist" textAlignment="CENTER" />
-                  <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitGameButton" text="Exit" textAlignment="CENTER" />
+                  <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButton" text="Új játék" textAlignment="CENTER" />
+                  <Button fx:id="toplistButton" mnemonicParsing="false" onAction="#toplistButton" text="Toplista" textAlignment="CENTER" />
+                  <Button fx:id="exitButton" mnemonicParsing="false" onAction="#exitGameButton" text="Kilépés" textAlignment="CENTER" />
                </children>
             </VBox>
          </children>
       </Pane>
       <Pane fx:id="gamePane" prefHeight="760.0" prefWidth="1020.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <ImageView fx:id="gameBackground" fitHeight="780.0" fitWidth="1040.0" pickOnBounds="true" preserveRatio="true" />
             <Canvas fx:id="canvas" height="760.0" layoutX="5.0" layoutY="5.0" onKeyPressed="#keyHandler" width="1020.0" />
          </children>
       </Pane>

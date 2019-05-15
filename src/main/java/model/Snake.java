@@ -15,10 +15,9 @@ public class Snake {
      */
     private static ArrayList<Cell> snake = new ArrayList<>();
 
-
     /**
      * Az osztály konstruktora. Inicializál egy kígyót.
-     * Megadja a kígyó kezdeti pozícióját, illeve inicializálja a kezdeti irányít.
+     * Megadja a kígyó kezdeti pozícióját, illetve inicializálja a kezdeti irányít.
      *
      * @see Snake
      */
@@ -38,12 +37,12 @@ public class Snake {
      * @return A kígyót alkotó kígyósejtek listáját.
      * @see Cell
      */
-    public ArrayList<Cell> getSnake() {
+    public static ArrayList<Cell> getSnake() {
         return snake;
     }
 
     /**
-     * Megvizsgálja hogy a kigyó érvénytelen területre navigált-e.
+     * Megvizsgálja hogy a kígyó érvénytelen területre navigált-e.
      * Ellenőrízi, hogy ütközött-e a falakkal vagy magával.
      *
      * @return {@code true}: érvénytelen területre navigált a kígyó, {@code false}: a kígyó érvényes területen tartózkodik.
@@ -55,9 +54,8 @@ public class Snake {
             }
         }
 
-        if (snake.get(0).getX() == 0 || snake.get(0).getX() == Game.getWIDTH() - 20  ||
-                snake.get(0).getY() == 0 || snake.get(0).getY() == Game.getHEIGHT() - 20 ) {
-            System.out.println(Game.getWIDTH());
+        if (snake.get(0).getX() < 0 || snake.get(0).getX() > Game.getWIDTH() - 20  ||
+                snake.get(0).getY() < 0 || snake.get(0).getY() > Game.getHEIGHT() - 20 ) {
             return true;
         }
         return false;
@@ -84,10 +82,10 @@ public class Snake {
     }
 
     /**
-     * A kigyó mozgatásáért felel.
+     * A kígyó mozgatásáért felel.
      *
      * @param food A pályán lévő kaja objektum.
-     * @return  {@code true}: A kigyó frissítése folytatódhat.
+     * @return  {@code true}: A kígyó frissítése folytatódhat.
      *          {@code false}: A kígyó frissítésének befejezése, ami a játék befejezéséhez vezet.
      */
     public boolean update(Food food) {
