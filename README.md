@@ -11,7 +11,7 @@
 ## Kezelési útmutató
 
 * **Billentyűk:**
-  * W: fEL
+  * W: Fel
   * A: Le
   * S: Balra
   * D: Jobbra
