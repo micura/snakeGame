@@ -1,6 +1,6 @@
 # snakeGame
 
-## Leíárs
+## Leírás
 
  Az alkalmazás a Programozási technológiák és Programozási környezetek tárgy beadandó feladataként valósult meg.
   
