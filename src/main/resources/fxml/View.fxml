@@ -30,13 +30,13 @@
             <Canvas fx:id="canvas" height="760.0" layoutX="5.0" layoutY="5.0" onKeyPressed="#keyHandler" width="1020.0" />
          </children>
       </Pane>
-      <Pane fx:id="endGamePane" layoutX="226.0" layoutY="276.0" prefHeight="217.0" prefWidth="583.0" visible="false">
+      <Pane fx:id="endGamePane" layoutX="226.0" layoutY="276.0" prefHeight="252.0" prefWidth="583.0" visible="false">
          <children>
-            <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#8cc5e4" height="217.0" stroke="BLACK" strokeType="INSIDE" width="583.0" />
+            <Rectangle arcHeight="60.0" arcWidth="60.0" fill="#8cc5e4" height="252.0" stroke="BLACK" strokeType="INSIDE" width="583.0" />
             <HBox alignment="BOTTOM_CENTER" layoutX="137.0" layoutY="172.0" prefHeight="31.0" prefWidth="307.0" spacing="50.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#addToplistButton" prefHeight="30.0" prefWidth="70.0" text="OK" textAlignment="CENTER" />
-                  <Button mnemonicParsing="false" onAction="#backMenuButton" prefHeight="30.0" prefWidth="70.0" text="Mégse" textAlignment="CENTER" />
+                  <Button mnemonicParsing="false" onAction="#backMenuButton" prefHeight="31.0" prefWidth="83.0" text="Mégse" textAlignment="CENTER" />
                </children>
             </HBox>
             <Label fx:id="alertText" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="17.0" prefHeight="75.0" prefWidth="558.0" text="Label" textAlignment="CENTER" wrapText="true">

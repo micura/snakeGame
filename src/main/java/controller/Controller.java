@@ -165,7 +165,7 @@ public class Controller {
     private void draw(){
         Timeline timeline  = new Timeline(20);
         try {
-            timeline.getKeyFrames().add(new KeyFrame(new javafx.util.Duration(150), (ActionEvent event) -> {
+            timeline.getKeyFrames().add(new KeyFrame(new javafx.util.Duration(100), (ActionEvent event) -> {
                 GraphicsContext gc = canvas.getGraphicsContext2D();
                 if (!game.isGameOver()) {
 
