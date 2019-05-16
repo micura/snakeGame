@@ -20,6 +20,9 @@ import java.io.IOException;
  * Az {@link model.Main} osztály reprezentálja a teljes programot.
  */
 public class Main extends Application {
+    /**
+     * Megadja a logoláshoz szükséges konfigurációs állományt.
+     */
     public static final Logger log = LoggerFactory.getLogger(String.valueOf(Main.class.getResource("/log4j2.xml")));
 
     @Override
@@ -36,6 +39,7 @@ public class Main extends Application {
 
     /**
      * Ez a statikus eljárás a program belépési pontjának felel meg.
+     * @param args a program argumentumai.
      */
     public static void main(String[] args) {
         launch(args);
